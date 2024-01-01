@@ -11,12 +11,15 @@ import './assets/styles/bootstrap.custom.css'
 import './assets/styles/index.css'
 import App from './App';
 import HomeScreen from './screens/HomeScreen';
+import PostingView from './screens/PostingView';
 import reportWebVitals from './reportWebVitals';
 
 const router = createBrowserRouter (
   createRoutesFromElements(
     <Route path = "/" element = {<App />}>
       <Route index = {true} path = "/" element = {<HomeScreen />}/>
+      <Route path = "/posting/:id" element = {<PostingView />}/>
+
     </Route>
   )  )
 
