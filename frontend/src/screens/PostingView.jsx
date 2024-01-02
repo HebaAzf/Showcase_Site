@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import {Row, Col, Image, ListGroup, card, Button} from 'react-bootstrap'
+import {Row, Col, Image, ListGroup, Card} from 'react-bootstrap'
 import postings from "../PostingDetails"
 
 const PostingView = () => {
@@ -20,25 +20,26 @@ const posting = postings.find((p) => p._id === postID)
                 <Image src = {posting.image} alt = {posting.title} fluid />
             </Col>
             
-            <Col md={3}>
-               <ListGroup variant = 'flush'>
-                <ListGroup.Item>
-                    <h3>{posting.title}</h3>
-                </ListGroup.Item>
+            <Col md={7}>
+                <Card>
+                    <ListGroup variant = 'flush'>
 
-                <ListGroup.Item>
-                    <strong>{posting.name}</strong>
-                </ListGroup.Item>
+                        <ListGroup.Item>
+                            <h3>{posting.title}</h3>
+                        </ListGroup.Item>
 
-                <ListGroup.Item>
-                    {posting.description}
-                </ListGroup.Item>
+                        <ListGroup.Item>
+                            <strong>{posting.name}</strong>
+                        </ListGroup.Item>
 
-                </ListGroup> 
+                        <ListGroup.Item>
+                            {posting.description}
+                        </ListGroup.Item>
+
+                    </ListGroup>
+                </Card>
             </Col>
 
-            <Col md={3}>
-            </Col>
         </Row>
     </>
   )
