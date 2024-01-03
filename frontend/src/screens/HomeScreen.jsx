@@ -1,13 +1,24 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {Row, Col} from 'react-bootstrap'
-import posting from '../Components/Post'
-import postings from '../PostingDetails'
 import Post from '../Components/Post'
+import axios from 'axios'
 
 let SmallPDist = 10;
 
 const HomeScreen = () => {
-  return (
+    const [postings, setPostings] = useState([])
+
+    //array of dependencies- if you put smth in here it'll load
+    useEffect(() => {
+        const fetchPostings = async () => {
+        const {data} = await axios.get('/api//Postings')
+        setPostings(data);
+        }
+        
+        fetchPostings();
+    }, [])
+
+    return (
     <>
         <h1> Creations </h1>
         <Row>

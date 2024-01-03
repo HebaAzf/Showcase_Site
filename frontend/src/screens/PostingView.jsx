@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card} from 'react-bootstrap'
-import postings from "../PostingDetails"
+import axios from 'axios'
 
 const PostingView = () => {
-const {id:postID } = useParams()
-//comparing post ID in link with IDs in array and returning the posting for that ID
-const posting = postings.find((p) => p._id === postID)
+    const [posting, setPosting] = useState({})
+    const { id:postID } = useParams()
+    //comparing post ID in link with IDs in array and returning the posting for that ID
+
+    useEffect(() => {
+        const fetchPosting = async () => {
+        const {data} = await axios.get(`api/Posting/${postID}`)
+        setPosting(data);
+        }
+        
+        fetchPosting();
+    }, [postID])
 
   return (
     <>
