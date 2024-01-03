@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import {Row, Col, Image, ListGroup, Card} from 'react-bootstrap'
 import axios from 'axios'
+import postings from '../PostingDetails'
 
 const PostingView = () => {
-    const [posting, setPosting] = useState({})
+/*     const [posting, setPosting] = useState({})
     const { id:postID } = useParams()
     //comparing post ID in link with IDs in array and returning the posting for that ID
 
@@ -16,7 +17,7 @@ const PostingView = () => {
         }
         
         fetchPosting();
-    }, [postID])
+    }, [postID]) */
 
   return (
     <>

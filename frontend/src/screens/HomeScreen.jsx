@@ -2,23 +2,24 @@ import React, {useEffect, useState} from 'react'
 import {Row, Col} from 'react-bootstrap'
 import Post from '../Components/Post'
 import axios from 'axios'
+import postings from '../PostingDetails'
 
 let SmallPDist = 10;
 
-const HomeScreen = () => {
+/* const HomeScreen = () => {
     const [postings, setPostings] = useState([])
 
     //array of dependencies- if you put smth in here it'll load
     useEffect(() => {
         const fetchPostings = async () => {
-        const {data} = await axios.get('/api//Postings')
+        const {data} = await axios.get('/api/postings')
         setPostings(data);
         }
         
         fetchPostings();
     }, [])
 
-    return (
+    return ( */
     <>
         <h1> Creations </h1>
         <Row>
@@ -30,7 +31,7 @@ const HomeScreen = () => {
             ))}
         </Row>
     </>
-    )
+/*     )
 }
-
+ */
 export default HomeScreen

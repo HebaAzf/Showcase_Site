@@ -8,8 +8,8 @@ const postSchema = new mongoose.Schema({
     image: {type: String, required: true},
     description: 'String',
     theme: 'String',
-})
+}, {timestamps: true})
 
 const Posting = mongoose.model("Posting", postSchema)
 
-export default posting
+export default Posting
