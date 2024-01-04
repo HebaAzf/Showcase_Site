@@ -6,6 +6,10 @@ import axios from 'axios'
 import postings from '../PostingDetails'
 
 const PostingView = () => {
+    const {id:postID } = useParams()
+    //comparing post ID in link with IDs in array and returning the posting for that ID
+    const posting = postings.find((p) => p._id === postID)
+
 /*     const [posting, setPosting] = useState({})
     const { id:postID } = useParams()
     //comparing post ID in link with IDs in array and returning the posting for that ID

@@ -1,27 +1,34 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
+import { useGetPostsQuery } from '../slices/postsApiSlice.js'
 import {Row, Col} from 'react-bootstrap'
 import Post from '../Components/Post'
-import axios from 'axios'
-import postings from '../PostingDetails'
+import postings from '../PostingDetails.js'
 
 let SmallPDist = 10;
 
-/* const HomeScreen = () => {
-    const [postings, setPostings] = useState([])
+const HomeScreen = () => {
+    const { data, isLoading, error } = useGetPostsQuery({
 
-    //array of dependencies- if you put smth in here it'll load
+      });
+    //const [postings, setPostings] = useState([])
+
+/*     //array of dependencies- if you put smth in here it'll load
     useEffect(() => {
         const fetchPostings = async () => {
-        const {data} = await axios.get('/api/postings')
+        const {data} = await axios.get('http://localhost:5000/api/Postings')
         setPostings(data);
         }
         
         fetchPostings();
-    }, [])
+    }, [])  */
 
-    return ( */
+    return (
     <>
-        <h1> Creations </h1>
+    {isLoading ? 
+    (<h2>Loading...</h2>) : 
+    error ? (<div>{error.data?.message || error.error}</div>) : 
+    (<>
+    <h1>Creations</h1>
         <Row>
             {postings.map((posting) => (
                 <Col key = {posting._id} 
@@ -29,9 +36,11 @@ let SmallPDist = 10;
                     <Post posting = {posting} />
                 </Col>
             ))}
-        </Row>
+        </Row> 
+        </>
+    )}
     </>
-/*     )
+    )
 }
- */
+
 export default HomeScreen
